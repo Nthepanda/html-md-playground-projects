@@ -29,8 +29,10 @@
         function resize() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
-
-            scale = canvas.height/12
+            scale = canvas.height/12;
+            if (canvas.width-(scale*16)<=250) {
+                scale = (canvas.width-250)/16;
+            }
             draw();
         }
         window.addEventListener("resize", resize);
