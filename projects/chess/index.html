@@ -22,9 +22,9 @@
         //variables
         let scale = 30;
         //colors
-        mintgreen = "#20B03B"
-        forestgreen = "#209A35"
-        darkgreen = "#20B03B"
+        mintgreen = "#40C03B"
+        forestgreen = "#20B03B"
+        darkgreen = "#106A28"
         chesswhite = "#F4F0DD"
 
         function resize() {
@@ -41,6 +41,7 @@
         function draw() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             //fill background green
+            ctx.fillStyle = darkgreen;
             ctx.fillRect(0, 0, canvas.width, canvas.height);
             //chessboard green
             ctx.fillStyle = mintgreen;
