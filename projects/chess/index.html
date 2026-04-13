@@ -16,9 +16,14 @@
     <canvas id="maincanvas" width="400" height="400"></canvas>
 
     <script>
+        //elements
         const canvas = document.getElementById("maincanvas");
         const ctx = canvas.getContext("2d");
+        //variables
         let scale = 30;
+        //colors
+        mintgreen = "#20B03B"
+        chesswhite = "#F4F0DD"
 
         function resize() {
             canvas.width = window.innerWidth;
@@ -27,8 +32,8 @@
         window.addEventListener("resize", resize);
         function draw() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            //chessboard
-            ctx.fillStyle = "red";
+            //chessboard green
+            ctx.fillStyle = mintgreen;
             for (let y = 0; y < 10; y++) {
                 for (let x = 0; x < 10; x++) {
                     if (y % 2 === 1) {
@@ -38,7 +43,18 @@
                     }
                 }
             }
-            ctx.fillStyle = "red";
+            //chessboard white
+            ctx.fillStyle = chesswhite;
+            for (let y = 0; y < 10; y++) {
+                for (let x = 0; x < 10; x++) {
+                    if (y % 2 === 0) {
+                        ctx.fillRect(x*(2*scale), y*(1*scale), (1*scale), (1*scale));
+                    } else {
+                        ctx.fillRect(x*(2*scale)+(1*scale), y*(1*scale), (1*scale), (1*scale));
+                    }
+                }
+            }
+            
             draw();
         }
 
