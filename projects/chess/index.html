@@ -23,7 +23,7 @@
         let scale = 30;
         let xoffset = 0;
         let yoffset = 0;
-        let xmoving = 1;
+        let xmoving = 0;
         let ymoving = 0;
         //colors
         mintgreen = "#40C03B"
@@ -68,9 +68,9 @@
             for (let y = 0; y < 14; y++) {
                 for (let x = 0; x < 10; x++) {
                     if (y % 2 === 1) {
-                        ctx.fillRect(x*(2*scale)-scale+(xoffset*scale), y*(1*scale)-scale+(yoffset*scale), (1*scale), (1*scale));
+                        ctx.fillRect(x*(2*scale)-(scale*2)+(xoffset*scale), y*(1*scale)-(scale*2)+(yoffset*scale), (1*scale), (1*scale));
                     } else {
-                        ctx.fillRect(x*(2*scale)+(xoffset*scale), y*(1*scale)-scale+(yoffset*scale), (1*scale), (1*scale));
+                        ctx.fillRect(x*(2*scale)+(xoffset*scale)-scale, y*(1*scale)-(scale*2)+(yoffset*scale), (1*scale), (1*scale));
                     }
                 }
             }
@@ -79,9 +79,9 @@
             for (let y = 0; y < 14; y++) {
                 for (let x = 0; x < 10; x++) {
                     if (y % 2 === 0) {
-                        ctx.fillRect(x*(2*scale)-scale+(xoffset*scale), y*(1*scale)-scale+(yoffset*scale), (1*scale), (1*scale));
+                        ctx.fillRect(x*(2*scale)-(scale*2)+(xoffset*scale), y*(1*scale)-(scale*2)+(yoffset*scale), (1*scale), (1*scale));
                     } else {
-                        ctx.fillRect(x*(2*scale)+(xoffset*scale), y*(1*scale)-scale+(yoffset*scale), (1*scale), (1*scale));
+                        ctx.fillRect(x*(2*scale)+(xoffset*scale)-scale, y*(1*scale)-(scale*2)+(yoffset*scale), (1*scale), (1*scale));
                     }
                 }
             }
