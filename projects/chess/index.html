@@ -19,12 +19,17 @@
         //elements
         const canvas = document.getElementById("maincanvas");
         const ctx = canvas.getContext("2d");
+        //assets
+        
+        const king = new Image();
+        king.crossOrigin = "anonymous"; 
+        king.src = "https://ibb.co/fG0Dmm9P";
         //variables
         let scale = 30;
         let xoffset = 0;
         let yoffset = 0;
         let xmoving = 0;
-        let ymoving = 6;
+        let ymoving = -6;
         //colors
         mintgreen = "#40C03B"
         forestgreen = "#20B03B"
@@ -77,7 +82,7 @@
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             //chessboard green
             ctx.fillStyle = mintgreen;
-            for (let y = 0; y < 14; y++) {
+            for (let y = 0; y < 16; y++) {
                 for (let x = 0; x < 10; x++) {
                     if (y % 2 === 1) {
                         ctx.fillRect(x*(2*scale)-(scale*2)+(xoffset*scale), y*(1*scale)-(scale*2)+(yoffset*scale), (1*scale), (1*scale));
@@ -88,7 +93,7 @@
             }
             //chessboard white
             ctx.fillStyle = chesswhite;
-            for (let y = 0; y < 14; y++) {
+            for (let y = 0; y < 16; y++) {
                 for (let x = 0; x < 10; x++) {
                     if (y % 2 === 0) {
                         ctx.fillRect(x*(2*scale)-(scale*2)+(xoffset*scale), y*(1*scale)-(scale*2)+(yoffset*scale), (1*scale), (1*scale));
@@ -103,9 +108,10 @@
             //side bar
             ctx.fillStyle = forestgreen;
             ctx.fillRect(scale*16, 0, canvas.width-(scale*16),canvas.height)
+            //king
+            ctx.drawImage(king, 60, 60, 50, 50);
         }
         const resizeInterview = setInterval(draw, (1000/60));
-
         resize();
         draw();
     </script>
