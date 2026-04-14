@@ -21,12 +21,34 @@
         const ctx = canvas.getContext("2d");
         //variables
         let scale = 30;
+        let xoffset = 0;
+        let yoffset = 0;
+        let xmoving = 0
+        let ymoving = 0
         //colors
         mintgreen = "#40C03B"
         forestgreen = "#20B03B"
         darkgreen = "#106A28"
         chesswhite = "#F4F0DD"
 
+        function updatemoving() {
+            if (xmoving > 0) {
+                xmoving -= 1/60;
+                xoffset -= 1/60;
+            }
+            if (xmoving < 0) {
+                xmoving += 1/60;
+                xoffset += 1/60;
+            }
+            if (ymoving > 0) {
+                ymoving -= 1/60;
+                yoffset -= 1/60;
+            }
+            if (ymoving < 0) {
+                ymoving += 1/60;
+                yoffset += 1/60;
+            }
+        }
         function resize() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
@@ -42,23 +64,23 @@
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             //chessboard green
             ctx.fillStyle = mintgreen;
-            for (let y = 0; y < 12; y++) {
-                for (let x = 0; x < 8; x++) {
+            for (let y = 0; y < 14; y++) {
+                for (let x = 0; x < 10; x++) {
                     if (y % 2 === 1) {
-                        ctx.fillRect(x*(2*scale), y*(1*scale), (1*scale), (1*scale));
+                        ctx.fillRect(x*(2*scale)-scale+(xoffset*scale), y*(1*scale)-scale+(yoffset*scale), (1*scale), (1*scale));
                     } else {
-                        ctx.fillRect(x*(2*scale)+(1*scale), y*(1*scale), (1*scale), (1*scale));
+                        ctx.fillRect(x*(2*scale)+(xoffset*scale), y*(1*scale)-scale+(yoffset*scale), (1*scale), (1*scale));
                     }
                 }
             }
             //chessboard white
             ctx.fillStyle = chesswhite;
-            for (let y = 0; y < 12; y++) {
-                for (let x = 0; x < 8; x++) {
+            for (let y = 0; y < 14; y++) {
+                for (let x = 0; x < 10; x++) {
                     if (y % 2 === 0) {
-                        ctx.fillRect(x*(2*scale), y*(1*scale), (1*scale), (1*scale));
+                        ctx.fillRect(x*(2*scale)-scale+(xoffset*scale), y*(1*scale)-scale+(yoffset*scale), (1*scale), (1*scale));
                     } else {
-                        ctx.fillRect(x*(2*scale)+(1*scale), y*(1*scale), (1*scale), (1*scale));
+                        ctx.fillRect(x*(2*scale)+(xoffset*scale), y*(1*scale)-scale+(yoffset*scale), (1*scale), (1*scale));
                     }
                 }
             }
