@@ -23,8 +23,8 @@
         let scale = 30;
         let xoffset = 0;
         let yoffset = 0;
-        let xmoving = 0
-        let ymoving = 0
+        let xmoving = 1;
+        let ymoving = 0;
         //colors
         mintgreen = "#40C03B"
         forestgreen = "#20B03B"
@@ -49,6 +49,7 @@
                 yoffset += 1/60;
             }
         }
+        const movescreen = setInterval(updatemoving, (1000/60));
         function resize() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
