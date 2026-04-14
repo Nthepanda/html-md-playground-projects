@@ -24,7 +24,7 @@
         let xoffset = 0;
         let yoffset = 0;
         let xmoving = 0;
-        let ymoving = 0;
+        let ymoving = 6;
         //colors
         mintgreen = "#40C03B"
         forestgreen = "#20B03B"
@@ -47,6 +47,18 @@
             if (ymoving < 0) {
                 ymoving += 1/60;
                 yoffset += 1/60;
+            }
+            if (Math.round(xoffset*10)/10 == -2 || Math.round(xoffset*10)/10 == 2) {
+                xoffset = 0
+            }
+            if (Math.round(yoffset*10)/10 == -2 || Math.round(yoffset*10)/10 == 2) {
+                yoffset = 0
+            }
+            if (Math.round(xmoving*10)/10 === 0) {
+                xoffset = Math.round(xoffset)
+            }
+            if (Math.round(ymoving*10)/10 === 0) {
+                yoffset = Math.round(yoffset)
             }
         }
         const movescreen = setInterval(updatemoving, (1000/60));
