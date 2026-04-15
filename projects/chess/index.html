@@ -20,7 +20,6 @@
         const canvas = document.getElementById("maincanvas");
         const ctx = canvas.getContext("2d");
         //assets
-        
         const king = new Image();
         king.crossOrigin = "anonymous"; 
         king.src = "https://s6.imgcdn.dev/Y9KTR8.png";
@@ -31,11 +30,11 @@
         let xmoving = 0;
         let ymoving = -6;
         //colors
-        mintgreen = "#40C03B"
-        forestgreen = "#20B03B"
-        darkgreen = "#106A28"
-        chesswhite = "#F4F0DD"
-
+        mintgreen = "#40C03B";
+        forestgreen = "#20B03B";
+        darkgreen = "#106A28";
+        chesswhite = "#F4F0DD";
+        chessyellow = "#F2F058";
         function updatemoving() {
             if (xmoving > 0) {
                 xmoving -= 1/60;
@@ -109,7 +108,8 @@
             ctx.fillStyle = forestgreen;
             ctx.fillRect(scale*16, 0, canvas.width-(scale*16),canvas.height)
             //king
-            ctx.drawImage(king, 60, 60, 50, 50);
+            ctx.fillStyle = 
+            ctx.drawRect(60, 60, 50, 50);
         }
         const resizeInterview = setInterval(draw, (1000/60));
         resize();
